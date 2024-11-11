@@ -1,0 +1,11 @@
+# Negeer de virtuele omgeving
+venv/
+
+# Negeer compiled files
+__pycache__/
+
+# Negeer gevoelige data
+config.json
+
+# Negeer de lokale database files
+data/*.db
