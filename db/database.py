@@ -1,14 +1,25 @@
 import sqlite3
 import os
+import json
+
+def laad_config():
+	with open("config.example.json") as bestand:
+		config = json.load(bestand)
+	return config
 
 def maak_connectie():
 	#Path maken waar de database moet komen
-	if not os.path.exists('data'):
-		os.makedirs('data')
+	config = laad_config()
+	db_naam = config["database"]["naam"]
+	db_locatie = config["database"]["locatie"]
+	db_path = os.path.join(db_locatie, db_naam)
+
+	if not os.path.exists(db_locatie):
+		os.makedirs(db_locatie)
 
 	#Verbinding maken met de database
 	try:
-		dbconnectie = sqlite3.connect("data/filmbeheer.db")
+		dbconnectie = sqlite3.connect(db_path)
 		print("Verbonden met database")
 	except sqlite3.Error as error:
 		print(f"Er deed zich een fout voor: {error}")
