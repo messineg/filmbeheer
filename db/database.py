@@ -32,7 +32,8 @@ def maak_tabellen_voeg_data_toe():
 	cursor.execute('''CREATE TABLE IF NOT EXISTS Regisseurs (
 					id INTEGER PRIMARY KEY AUTOINCREMENT,
 					naam TEXT,
-					geboorte_jaar INTEGER)''')
+					geboorte_jaar INTEGER,
+					UNIQUE(naam, geboorte_jaar))''')
 
 	#Creatie van de Film tabel
 	cursor.execute('''CREATE TABLE IF NOT EXISTS Films (
@@ -41,8 +42,8 @@ def maak_tabellen_voeg_data_toe():
 					release_jaar INTEGER, 
 					genre TEXT,
 					regisseur_id INTEGER,
-					FOREIGN KEY (regisseur_id)
-						REFERENCES Regisseurs (id) )''')
+					FOREIGN KEY (regisseur_id) REFERENCES Regisseurs (id),
+					UNIQUE(titel, release_jaar, regisseur_id) )''')
 
 	print("Tabellen werden aangemaakt")
 
