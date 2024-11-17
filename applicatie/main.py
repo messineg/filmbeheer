@@ -1,18 +1,20 @@
 import sqlite3
-from db.database import maak_connectie, maak_tabellen_voeg_data_toe
+from db.database import maak_connectie, setup_database
 import json
 import os
-from functies.zoek_gegevens import zoek_films_alle, zoek_film_vraag
+from functies.toon_gegevens import toon_films_alle, toon_regisseurs_alle
+from functies.zoek_film import zoek_film_vraag
 
 def main():
 	maak_connectie()
-	maak_tabellen_voeg_data_toe()
+	setup_database()
 
 	print("De eerste basis is uitgevoerd")
 
 	acties = {
-    "1": ("Toon alle films", zoek_films_alle),
-    "2": ("Zoek een film", zoek_film_vraag)
+    "1": ("Toon alle films", toon_films_alle),
+    "2": ("Toon alle regisseurs", toon_regisseurs_alle),
+    "3": ("Zoek een film", zoek_film_vraag)
 	}
 
 	print("Beschikbare acties:")

@@ -1,6 +1,5 @@
 import sqlite3
 import os
-import json
 from config_laden import laad_config
 
 
@@ -22,7 +21,7 @@ def maak_connectie():
 		print(f"Er deed zich een fout voor: {error}")
 	return dbconnectie
 
-def maak_tabellen_voeg_data_toe():
+def setup_database():
 	connectie = maak_connectie()
 	cursor = connectie.cursor()
 	#Eerst creatie van Regisseurs, aangezien we in de Films tabel een FK naar deze tabel zullen nodig hebben

@@ -8,8 +8,8 @@ class Film():
 
 	def beschrijf_film(self):
 		print(f"""
-Titel: {self.titel};
-Releasejaar: {self.release_jaar}; 
+Titel: {self.titel}
+Releasejaar: {self.release_jaar}
 Genre: {self.genre}""")
 
 
@@ -20,4 +20,6 @@ class Regisseur():
 		self.geboorte_jaar = geboorte_jaar
 
 	def beschrijf_regisseur(self):
-		print(f"Naam: {self.naam}; Geboortejaar: {self.geboorte_jaar}")
+		print(f"""
+Naam: {self.naam} 
+Geboortejaar: {self.geboorte_jaar}""")

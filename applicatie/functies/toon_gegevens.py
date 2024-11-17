@@ -2,7 +2,7 @@ import sqlite3
 from db.database import maak_connectie
 from db.klassen import Film, Regisseur
 
-def zoek_films_alle():
+def toon_films_alle():
 	dbconnectie= maak_connectie()
 	cursor = dbconnectie.cursor()
 	cursor.execute('SELECT * FROM Films')
@@ -10,6 +10,15 @@ def zoek_films_alle():
 	for row in cursor:
 		films = Film(row[0], row[1], row[2], row[3], row[4])
 		films.beschrijf_film()
+
+def toon_regisseurs_alle():
+	dbconnectie= maak_connectie()
+	cursor = dbconnectie.cursor()
+	cursor.execute('SELECT * FROM Regisseurs')
+
+	for row in cursor:
+		regisseurs = Regisseur(row[0], row[1], row[2])
+		regisseurs.beschrijf_regisseur()
 
 def zoek_film_vraag():
 	dbconnectie= maak_connectie()
