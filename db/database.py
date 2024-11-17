@@ -3,7 +3,7 @@ import os
 import json
 
 def laad_config():
-	with open("config.example.json") as bestand:
+	with open("config.json") as bestand:
 		config = json.load(bestand)
 	return config
 
