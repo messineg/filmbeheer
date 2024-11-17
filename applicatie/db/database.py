@@ -1,11 +1,8 @@
 import sqlite3
 import os
 import json
+from config_laden import laad_config
 
-def laad_config():
-	with open("config.json") as bestand:
-		config = json.load(bestand)
-	return config
 
 def maak_connectie():
 	#Path maken waar de database moet komen
