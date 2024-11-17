@@ -8,4 +8,4 @@ __pycache__/
 config.json
 
 # Negeer de lokale database files
-data/*.db
+applicatie/data/*.db
