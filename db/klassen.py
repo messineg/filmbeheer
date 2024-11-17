@@ -20,4 +20,4 @@ class Regisseur():
 		self.geboorte_jaar = geboorte_jaar
 
 	def beschrijf_regisseur(self):
-		print(f"Naam: {self.naam}; Geboortejaar = {self.geboorte_jaar}")
+		print(f"Naam: {self.naam}; Geboortejaar: {self.geboorte_jaar}")
