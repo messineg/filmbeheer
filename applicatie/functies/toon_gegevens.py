@@ -2,30 +2,30 @@ import sqlite3
 from db.database import maak_connectie
 from db.klassen import Film, Regisseur
 
-def toon_films_alle():
+def verkrijg_cursor():
+	#Functie om niet telkens de code te moeten herhalen om de cursor op te halen
 	dbconnectie= maak_connectie()
 	cursor = dbconnectie.cursor()
+	return dbconnectie, cursor
+
+def toon_films_alle():
+	
+	dbconnectie, cursor = verkrijg_cursor()
+
 	cursor.execute('SELECT * FROM Films')
 	
 	for row in cursor:
 		films = Film(row[0], row[1], row[2], row[3], row[4])
 		films.beschrijf_film()
 
+	dbconnectie.close()
+
 def toon_regisseurs_alle():
-	dbconnectie= maak_connectie()
-	cursor = dbconnectie.cursor()
+	dbconnectie, cursor = verkrijg_cursor()
 	cursor.execute('SELECT * FROM Regisseurs')
 
 	for row in cursor:
 		regisseurs = Regisseur(row[0], row[1], row[2])
 		regisseurs.beschrijf_regisseur()
 
-def zoek_film_vraag():
-	dbconnectie= maak_connectie()
-	cursor = dbconnectie.cursor()
-	gezochte_film = input("Geef de titel van een film in:")
-	cursor.execute('SELECT * FROM Films WHERE titel=?', (gezochte_film, ))
-	
-	for row in cursor:
-		film = Film(row[0], row[1], row[2], row[3], row[4])
-		film.beschrijf_film()
+	dbconnectie.close()

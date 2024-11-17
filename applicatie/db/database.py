@@ -60,6 +60,7 @@ def setup_database():
             ('Avatar', 2009, 'Action', (SELECT id FROM Regisseurs WHERE naam = 'James Cameron'))
         ''')
 
+	print("Initiële data voor films werd toegevoegd.")
 
 	connectie.commit()
 	connectie.close()
