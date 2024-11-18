@@ -12,10 +12,10 @@ def voeg_film_toe():
 	filmgenre = input("Geef het genre in: ")
 	filmregisseur = input("Geef regisseur:")
 
-	#film = (filmtitel, filmrelease, filmgenre, filmregisseur)
-	query = '''INSERT INTO Films (titel, release_jaar, genre, regisseur_id) VALUES (filmtitel, filmrelease, filmgenre, filmregisseur)'''
+	query = '''INSERT INTO Films (titel, release_jaar, genre, regisseur_id) VALUES (?, ?, ?, ?)'''
 
 	
-	cursor.execute(query)
+	cursor.execute(query, (filmtitel, filmrelease, filmgenre, filmregisseur))
 
+	dbconnectie.commit()
 	toon_films_alle()
