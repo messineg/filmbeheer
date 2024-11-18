@@ -57,7 +57,8 @@ def setup_database():
             ('Schindler List', 1993, 'Drama', (SELECT id FROM Regisseurs WHERE naam = 'Steven Spielberg')),
             ('Pulp Fiction', 1994, 'Crime', (SELECT id FROM Regisseurs WHERE naam = 'Quentin Tarantino')),
             ('Goodfellas', 1990, 'Crime', (SELECT id FROM Regisseurs WHERE naam = 'Martin Scorsese')),
-            ('Avatar', 2009, 'Action', (SELECT id FROM Regisseurs WHERE naam = 'James Cameron'))
+            ('Avatar', 2009, 'Action', (SELECT id FROM Regisseurs WHERE naam = 'James Cameron')),
+            ('The Departed', 2006, 'Crime',(SELECT id FROM Regisseurs WHERE naam = 'Martin Scorsese'))
         ''')
 
 	print("Initiële data voor films werd toegevoegd.")
