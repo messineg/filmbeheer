@@ -18,7 +18,7 @@ def zoek_film_titel():
 		Regisseurs.naam, Regisseurs.geboorte_jaar 
 		FROM Films
 		JOIN Regisseurs ON Films.regisseur_id = Regisseurs.id 
-		WHERE Films.titel=?''', (gezochte_film, ))
+		WHERE Films.titel LIKE ?''', (f"%{gezochte_film}%", ))
 	
 	for row in cursor:
 		film = Film(row[0], row[1], row[2], row[3], row[4])
@@ -37,7 +37,7 @@ def zoek_film_regisseur():
 		Regisseurs.naam, Regisseurs.geboorte_jaar 
 		FROM Films
 		JOIN Regisseurs ON Films.regisseur_id = Regisseurs.id 
-		WHERE Regisseurs.naam=?''', (gezochte_regisseur, ))
+		WHERE Regisseurs.naam LIKE ?''', (f"%{gezochte_regisseur}%", ))
 	
 	for row in cursor:
 		film = Film(row[0], row[1], row[2], row[3], row[4])
