@@ -21,9 +21,15 @@ def maak_connectie():
 		print(f"Er deed zich een fout voor: {error}")
 	return dbconnectie
 
+def verkrijg_cursor():
+	#Functie om niet telkens de code te moeten herhalen om de cursor op te halen
+	dbconnectie= maak_connectie()
+	cursor = dbconnectie.cursor()
+
+	return dbconnectie, cursor
+
 def setup_database():
-	connectie = maak_connectie()
-	cursor = connectie.cursor()
+	dbconnectie, cursor = verkrijg_cursor()
 	#Eerst creatie van Regisseurs, aangezien we in de Films tabel een FK naar deze tabel zullen nodig hebben
 	cursor.execute('''CREATE TABLE IF NOT EXISTS Regisseurs (
 					id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -63,6 +69,6 @@ def setup_database():
 
 	print("Initiële data voor films werd toegevoegd.")
 
-	connectie.commit()
-	connectie.close()
+	dbconnectie.commit()
+	dbconnectie.close()
 

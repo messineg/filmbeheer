@@ -1,13 +1,6 @@
 import sqlite3
-from db.database import maak_connectie
+from db.database import verkrijg_cursor
 from db.klassen import Film, Regisseur
-
-def verkrijg_cursor():
-	#Functie om niet telkens de code te moeten herhalen om de cursor op te halen
-	dbconnectie= maak_connectie()
-	cursor = dbconnectie.cursor()
-	
-	return dbconnectie, cursor
 
 def zoek_film_titel():
 	dbconnectie, cursor= verkrijg_cursor()
@@ -36,6 +29,7 @@ def zoek_film_titel():
 	else:
 		print("Geen films gevonden op basis van de zoekopdracht")
 	
+	dbconnectie.close()
 
 def zoek_film_regisseur():
 	dbconnectie, cursor= verkrijg_cursor()
@@ -62,3 +56,5 @@ def zoek_film_regisseur():
 			regisseur.beschrijf_regisseur()
 	else:
 		print("Geen resultaten gevonden")
+
+	dbconnectie.close()
