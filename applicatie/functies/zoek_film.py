@@ -13,14 +13,13 @@ def zoek_film_titel():
 		WHERE Films.titel LIKE ?'''
 
 	parameter = (f"%{gezochte_film}%", )
-	
+
 	cursor.execute(query, parameter)
 	
 	resultaten = cursor.fetchall()
 
 	if resultaten:
 		for row in resultaten:
-			print("Resultaat gevonden")
 			film = Film(row[0], row[1], row[2], row[3], row[4])
 			regisseur = Regisseur(row[4], row[4], row[5])
 			print("Filmgegevens:")
