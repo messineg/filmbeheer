@@ -6,21 +6,28 @@ from functies.toon_gegevens import toon_films_alle, toon_regisseurs_alle
 def voeg_film_toe():
 	dbconnectie, cursor = verkrijg_cursor()
 
-	
-	filmtitel = input("Geef de titel van een film in: ")
-	filmrelease = int(input("Geef releasejaar: "))
-	filmgenre = input("Geef het genre in: ")
-	filmregisseur = input("Geef regisseur:")
+	film_titel = input("Geef de titel van een film in: ")
+	film_release = int(input("Geef releasejaar: "))
+	film_genre = input("Geef het genre in: ")
+	film_regisseur = input("Geef regisseur:")
 
-	query = '''INSERT INTO Films (titel, release_jaar, genre, regisseur_id) 
+	#Controle om te checken of de regisseur al bestaat
+	query_regisseur = 'SELECT * FROM Regisseurs WHERE naam=?'
+	cursor.execute(query_regisseur, [(film_regisseur)])
+
+	resultaat = cursor.fetchone()
+	if resultaat:
+		regisseur_id = resultaat[0]
+		query_film = '''INSERT INTO Films (titel, release_jaar, genre, regisseur_id) 
 				VALUES (?, ?, ?, ?)'''
+		cursor.execute(query_film, (film_titel, film_release, film_genre, regisseur_id))
+		dbconnectie.commit()
+		print("De films die zich nu in de database bevinden zijn de volgende: ")
+		toon_films_alle()
+	else:
+		print("De regisseur werd niet gevonden, maak eerst de regisseur aan")
 
 	
-	cursor.execute(query, (filmtitel, filmrelease, filmgenre, filmregisseur))
-
-	dbconnectie.commit()
-	print("De films die zich nu in de database bevinden zijn de volgende: ")
-	toon_films_alle()
 
 def voeg_regisseur_toe():
 	dbconnectie, cursor = verkrijg_cursor()
