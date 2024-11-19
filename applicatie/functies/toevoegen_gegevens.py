@@ -9,7 +9,7 @@ def voeg_film_toe():
 	film_titel = input("Geef de titel van een film in: ")
 	film_release = int(input("Geef releasejaar: "))
 	film_genre = input("Geef het genre in: ")
-	film_regisseur = input("Geef regisseur:")
+	film_regisseur = input("Geef regisseur: ")
 
 	#Controle om te checken of de regisseur al bestaat
 	query_regisseur = 'SELECT * FROM Regisseurs WHERE naam=?'
@@ -27,7 +27,7 @@ def voeg_film_toe():
 	else:
 		print("De regisseur werd niet gevonden, maak eerst de regisseur aan")
 
-	
+	dbconnectie.close()
 
 def voeg_regisseur_toe():
 	dbconnectie, cursor = verkrijg_cursor()
@@ -43,3 +43,5 @@ def voeg_regisseur_toe():
 	print("De regisseur tabel werd uitgebreid, volgende gegevens zitten nu in de tabel: ")
 
 	toon_regisseurs_alle()
+
+	dbconnectie.close()
