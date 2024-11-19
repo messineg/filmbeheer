@@ -2,8 +2,7 @@ import sqlite3
 import os
 from config_laden import laad_config
 
-
-def maak_connectie():
+def creatie_locatie_database():
 	#Path maken waar de database moet komen
 	config = laad_config()
 	db_naam = config["database"]["naam"]
@@ -13,6 +12,12 @@ def maak_connectie():
 	if not os.path.exists(db_locatie):
 		os.makedirs(db_locatie)
 
+	return db_path
+
+def maak_connectie():
+	
+	db_path = creatie_locatie_database()
+	
 	#Verbinding maken met de database
 	try:
 		dbconnectie = sqlite3.connect(db_path)

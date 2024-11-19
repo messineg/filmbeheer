@@ -13,6 +13,7 @@ def zoek_film_titel():
 		WHERE Films.titel LIKE ?'''
 
 	parameter = (f"%{gezochte_film}%", )
+	
 	cursor.execute(query, parameter)
 	
 	resultaten = cursor.fetchall()
