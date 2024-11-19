@@ -22,7 +22,7 @@ def voeg_film_toe():
 				VALUES (?, ?, ?, ?)'''
 		cursor.execute(query_film, (film_titel, film_release, film_genre, regisseur_id))
 		dbconnectie.commit()
-		print("De films die zich nu in de database bevinden zijn de volgende: ")
+		print(f"{film_titel} werd toegevoegd. De films die zich nu in de database bevinden zijn de volgende: ")
 		toon_films_alle()
 	else:
 		print("De regisseur werd niet gevonden, maak eerst de regisseur aan")
@@ -40,7 +40,7 @@ def voeg_regisseur_toe():
 	cursor.execute(query, (regisseur_naam, regisseur_geboortejaar))
 
 	dbconnectie.commit()
-	print("De regisseur tabel werd uitgebreid, volgende gegevens zitten nu in de tabel: ")
+	print(f"De regisseur tabel werd uitgebreid met {regisseur_naam}, volgende gegevens zitten nu in de tabel: ")
 
 	toon_regisseurs_alle()
 
