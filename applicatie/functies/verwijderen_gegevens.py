@@ -4,6 +4,7 @@ from db.klassen import Film, Regisseur
 from functies.toon_gegevens import toon_films_alle, toon_regisseurs_alle
 
 def verwijder_film():
+	#Ophalen van de connectie en de cursor
 	dbconnectie, cursor = verkrijg_cursor()
 
 	#Vraag de gebruiker welke film verwijderd mag worden

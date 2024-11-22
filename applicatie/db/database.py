@@ -17,14 +17,15 @@ def creatie_locatie_database():
 def maak_connectie():
 	
 	db_path = creatie_locatie_database()
-	
+
 	#Verbinding maken met de database
 	try:
 		dbconnectie = sqlite3.connect(db_path)
 		print("Verbonden met database")
+		return dbconnectie
 	except sqlite3.Error as error:
 		print(f"Er deed zich een fout voor: {error}")
-	return dbconnectie
+	
 
 def verkrijg_cursor():
 	#Functie om niet telkens de code te moeten herhalen om de cursor op te halen

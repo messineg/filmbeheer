@@ -26,6 +26,7 @@ def zoek_film_titel():
 
 	#Weergave van de resultaten
 	if resultaten:
+		print(f"{len(resultaten)} resultaat/resultaten gevonden:")
 		for row in resultaten:
 			film = Film(row[0], row[1], row[2], row[3], row[4])
 			regisseur = Regisseur(row[4], row[4], row[5])
@@ -63,6 +64,7 @@ def zoek_film_regisseur():
 	
 	#Weergave van de resultaten
 	if resultaten:
+		print(f"{len(resultaten)} resultaat/resultaten gevonden:")
 		for row in resultaten:
 			film = Film(row[0], row[1], row[2], row[3], row[4])
 			regisseur = Regisseur(row[4], row[4], row[5])
