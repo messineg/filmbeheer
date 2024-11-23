@@ -1,7 +1,7 @@
 import sqlite3
 from db.database import verkrijg_cursor
 from db.klassen import Film, Regisseur
-from functies.toon_gegevens import toon_films_alle, toon_regisseurs_alle
+from functies.toon_gegevens import toon_films_alle
 
 def verwijder_film():
 	#Ophalen van de connectie en de cursor
@@ -17,7 +17,14 @@ def verwijder_film():
 	#Ophalen en verwijderen van de film en erna tonen van welke films nu in de database zitten
 	try:
 		cursor.execute(query, parameter)
-		dbconnectie.commit()
-		toon_films_alle()
+		if cursor.rowcount > 0:
+			dbconnectie.commit()
+			print(f"{film_titel} werd succesvol verwijderd.")
+			toon_films_alle()
+		else:
+			print(f"{film_titel} werd niet gevonden in de database.")
+		
 	except sqlite3.Error as error:
 		print(f"Er deed zich een foutmelding voor bij het verwijderen van de film: {error}")
+
+	
