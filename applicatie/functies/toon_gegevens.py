@@ -3,7 +3,7 @@ from db.database import verkrijg_cursor
 from db.klassen import Film, Regisseur
 
 def toon_films_alle():
-	
+	#Ophalen van de connectie en de cursor
 	dbconnectie, cursor = verkrijg_cursor()
 	
 	#Definieer de query om code leesbaarder te maken
@@ -28,6 +28,7 @@ def toon_films_alle():
 	dbconnectie.close()
 
 def toon_regisseurs_alle():
+	#Ophalen van de connectie en de cursor
 	dbconnectie, cursor = verkrijg_cursor()
 	
 	#Definieer de query om code leesbaarder te maken

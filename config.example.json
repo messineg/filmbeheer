@@ -2,5 +2,9 @@
   "database": {
     "naam": "filmbeheer.db",
     "locatie": "data/"
+  },
+  "export": {
+    "naam": "export_films.csv",
+    "locatie": "export/"
   }
 }
