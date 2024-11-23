@@ -7,6 +7,7 @@ class Film():
 		self.regisseur = regisseur
 
 	def beschrijf_film(self):
+		#Functie om de data wat mooier weer te geven
 		print(f"""Titel: {self.titel}
 Releasejaar: {self.release_jaar}
 Genre: {self.genre}""")
@@ -19,5 +20,6 @@ class Regisseur():
 		self.geboorte_jaar = geboorte_jaar
 
 	def beschrijf_regisseur(self):
+		#Functie om de data wat mooier weer te geven
 		print(f"""Naam: {self.naam} 
 Geboortejaar: {self.geboorte_jaar}""")

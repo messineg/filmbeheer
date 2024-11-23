@@ -41,5 +41,6 @@ def exporteer_films():
 		#Opgehaalde data wegschrijven naar het bestand
 		bestand_schrijven.writerows(resultaten)
 
+		dbconnectie.close()
 	print(f"Films zijn succesvol geëxporteerd naar {export_path}")
 	
