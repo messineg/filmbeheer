@@ -3,6 +3,7 @@ from functies.toon_gegevens import toon_films_alle, toon_regisseurs_alle
 from functies.zoek_film import zoek_film_titel, zoek_film_regisseur
 from functies.toevoegen_gegevens import voeg_film_toe, voeg_regisseur_toe
 from functies.verwijderen_gegevens import verwijder_film
+from functies.export_films import exporteer_films
 
 def main():
 	setup_database()
@@ -14,7 +15,8 @@ def main():
     "4": ("Zoek een film op basis van de regisseur", zoek_film_regisseur),
     "5": ("Voeg een film toe", voeg_film_toe),
     "6": ("Voeg een regisseur toe", voeg_regisseur_toe),
-    "7": ("Verwijder een film", verwijder_film)
+    "7": ("Verwijder een film", verwijder_film),
+    "8": ("Exporteer alle films", exporteer_films)
 	}
 
 	print("Beschikbare acties:")
