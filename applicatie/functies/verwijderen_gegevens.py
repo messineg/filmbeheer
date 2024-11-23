@@ -11,7 +11,7 @@ def verwijder_film():
 	film_titel = input("Welke film wenst u te verwijderen: ")
 
 	#Opsplitsten query en parameter om code leesbaarder te maken
-	
+	query = "DELETE FROM Films WHERE titel = ?"
 	parameter = (film_titel, )
 
 	#Ophalen en verwijderen van de film en erna tonen van welke films nu in de database zitten
