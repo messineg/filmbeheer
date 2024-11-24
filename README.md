@@ -21,7 +21,6 @@ De applicatie maakt gebruik van een kleine SQLite database waar de gegevens bewa
 ## Installatie
 
 1. Ga binnen de terminal naar de map waar je het project wenst te installeren:
-
 ```
 git clone https://github.com/messineg/filmbeheer.git
 ```
@@ -41,3 +40,17 @@ python -m venv venv
 venv\Scripts\activate (voor Windows)
 source venv/bin/activate (voor Mac OS)
 ```
+
+5. Installeer de benodigde Python-pakketten
+```
+pip install -r requirements.txt
+```
+
+6. Configuratie instellen
+- Open config.example.json
+- Indien gewenst geef je de data of export map een andere naam
+- Indien gewenst geef je de database of export file een andere naam 
+- Sla het bestand op als config.json
+
+
+
