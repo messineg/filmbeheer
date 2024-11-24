@@ -2,6 +2,12 @@ import sqlite3
 from db.database import verkrijg_cursor
 from db.klassen import Film, Regisseur
 
+'''
+Deze code bevat alle functionaliteiten om te gaan zoeken in de database.
+Enerzijds is er de functie om op basis van een titel of gedeelte van een titel, de films op te halen.
+Daarnaast is er ook functionaliteit voorzien om op basis van een regisseurnaam of deel van een naam, de films op te halen.
+'''
+
 def zoek_film_titel():
 	#Ophalen van de db connectie en cursor
 	dbconnectie, cursor= verkrijg_cursor()
@@ -31,9 +37,9 @@ def zoek_film_titel():
 			film = Film(row[0], row[1], row[2], row[3], row[4])
 			regisseur = Regisseur(row[4], row[4], row[5])
 			print("Filmgegevens:")
-			film.beschrijf_film()
+			print(film)
 			print("Regisseurgegevens:")
-			regisseur.beschrijf_regisseur()
+			print(regisseur)
 	else:
 		print("Geen films gevonden op basis van de zoekopdracht")
 	

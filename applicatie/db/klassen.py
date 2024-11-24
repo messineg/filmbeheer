@@ -1,3 +1,8 @@
+'''
+Definiëren van de twee klasses op basis van de kolommen die werden gedefinieerd bij het opzetten van de database.
+Telkens ook een __str__ functie om de weergave van de data mooier te maken.
+'''
+
 class Film():
 	def __init__(self, id, titel, release_jaar, genre, regisseur):
 		self.id = id
@@ -6,11 +11,8 @@ class Film():
 		self.genre = genre
 		self.regisseur = regisseur
 
-	def beschrijf_film(self):
-		#Functie om de data wat mooier weer te geven
-		print(f"""Titel: {self.titel}
-Releasejaar: {self.release_jaar}
-Genre: {self.genre}""")
+	def __str__(self):
+		return f"Titel: {self.titel}\nReleasejaar: {self.release_jaar}\nGenre: {self.genre}"
 
 
 class Regisseur():
@@ -19,7 +21,5 @@ class Regisseur():
 		self.naam = naam
 		self.geboorte_jaar = geboorte_jaar
 
-	def beschrijf_regisseur(self):
-		#Functie om de data wat mooier weer te geven
-		print(f"""Naam: {self.naam} 
-Geboortejaar: {self.geboorte_jaar}""")
+	def __str__(self):
+		 return f"Naam: {self.naam}\nGeboortejaar: {self.geboorte_jaar}"

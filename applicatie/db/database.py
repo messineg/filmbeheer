@@ -2,6 +2,14 @@ import sqlite3
 import os
 from config_laden import laad_config
 
+'''
+Dit bestand dient om de hele database op te zetten:
+1. Creatie van de locatie op basis van wat er werd geconfigureerd in de config.json.
+2. Maken van connectie, zodat deze ook in andere bestanden kan worden gebruikt.
+3. Verkrijgen van cursor, idem zoals bij het maken van de connectie.
+4. Opzetten van de initiële database met data.
+'''
+
 def creatie_locatie_database():
 	#Path maken waar de database moet komen
 	config = laad_config()
@@ -15,7 +23,7 @@ def creatie_locatie_database():
 	return db_path
 
 def maak_connectie():
-	
+	#Ophalen database naam en locatie om te kunnen verbinden
 	db_path = creatie_locatie_database()
 
 	#Verbinding maken met de database
@@ -53,13 +61,9 @@ def setup_database():
 					FOREIGN KEY (regisseur_id) REFERENCES Regisseurs (id),
 					UNIQUE(titel, release_jaar, regisseur_id) )''')
 
-	print("Tabellen werden aangemaakt")
-
 	#Voeg regisseurs data toe aan de tabel
 	regisseurs_data = [('Christopher Nolan', 1970),('Steven Spielberg', 1946),('Quentin Tarantino', 1963),('Martin Scorsese', 1942),('James Cameron', 1954)]
 	cursor.executemany('INSERT OR IGNORE INTO Regisseurs (naam, geboorte_jaar) VALUES (?, ?)', regisseurs_data)  
-	
-	print("Initiële data voor regisseurs werd toegevoegd.")
 	
 	#Voeg films toe en zoek naar de id van de regisseur op basis van de naam
 	cursor.execute('''
@@ -73,8 +77,9 @@ def setup_database():
             ('The Departed', 2006, 'Crime',(SELECT id FROM Regisseurs WHERE naam = 'Martin Scorsese'))
         ''')
 
-	print("Initiële data voor films werd toegevoegd.")
 
+	#Gegevens doorvoeren en connectie afsluiten
 	dbconnectie.commit()
+	print("Database setup is voltooid.")
 	dbconnectie.close()
 

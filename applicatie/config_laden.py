@@ -1,6 +1,12 @@
 import json
 import os
 
+'''
+Dit bestand dient om config.json bestand met de instellingen en de naam en de map waar de de database moet komen
+op te halen.
+Daarnaast wordt ook de locatie en naam van het export bestand opgehaald.
+'''
+
 def laad_config():
 	#Opbouw van path waar config.json te vinden moet zijn
 	huidige_map = os.path.dirname(os.path.abspath(__file__))
