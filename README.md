@@ -22,22 +22,22 @@ De applicatie maakt gebruik van een kleine SQLite database waar de gegevens bewa
 
 1. Ga binnen de terminal naar de map waar je het project wenst te installeren:
 
-'''
+```
 git clone https://github.com/messineg/filmbeheer.git
-'''
+```
 
 2. Ga naar de map van het project:
-'''
+```
 cd filmbeheer
-'''
+```
 
 3. Maak een virtuele omgeving aan:
-'''
+```
 python -m venv venv
-'''
+```
 
 4. Activeer de virtuele omgeving:
-'''
+```
 venv\Scripts\activate (voor Windows)
 source venv/bin/activate (voor Mac OS)
-'''
+```
