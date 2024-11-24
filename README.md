@@ -52,5 +52,28 @@ pip install -r requirements.txt
 - Indien gewenst geef je de database of export file een andere naam 
 - Sla het bestand op als config.json
 
+## Gebruik
 
+1. Ga naar de applicatie map binnen het project
+
+```
+cd applicatie
+```
+
+2. Start de applicatie
+```
+python main.py
+```
+
+3. Kies een optie uit het menu
+- 1: Toon alle films
+- 2: Toon alle regisseurs
+- 3: Zoek films op titel
+- 4: Zoek films op regisseur
+- 5: Voeg een film toe
+- 6: Voeg een regisseur toe
+- 7: Verwijder een film
+- 8: Exporteer films naar CSV
+
+4. Volg de instructies bij het uitvoeren van een functie
 
