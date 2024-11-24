@@ -75,9 +75,9 @@ def zoek_film_regisseur():
 			film = Film(row[0], row[1], row[2], row[3], row[4])
 			regisseur = Regisseur(row[4], row[4], row[5])
 			print("Filmgegevens:")
-			film.beschrijf_film()
+			print(film)
 			print("Regisseurgegevens:")
-			regisseur.beschrijf_regisseur()
+			print(regisseur)
 	else:
 		print("Geen resultaten gevonden")
 

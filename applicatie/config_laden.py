@@ -1,5 +1,4 @@
-import json
-import os
+import json, os
 
 '''
 Dit bestand dient om config.json bestand met de instellingen en de naam en de map waar de de database moet komen

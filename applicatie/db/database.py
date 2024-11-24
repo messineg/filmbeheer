@@ -1,5 +1,4 @@
-import sqlite3
-import os
+import sqlite3, os
 from config_laden import laad_config
 
 '''
@@ -44,6 +43,14 @@ def verkrijg_cursor():
 
 def setup_database():
 	dbconnectie, cursor = verkrijg_cursor()
+
+	#Controleer of de setup al is uitgevoerd
+	cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='Films'")
+	if cursor.fetchone() is not None:
+		print("Database is al ingesteld. Setup wordt overgeslagen")
+		dbconnectie.close()
+		return
+
 	#Eerst creatie van Regisseurs, aangezien we in de Films tabel een FK naar deze tabel zullen nodig hebben
 	cursor.execute('''CREATE TABLE IF NOT EXISTS Regisseurs (
 					id INTEGER PRIMARY KEY AUTOINCREMENT,
